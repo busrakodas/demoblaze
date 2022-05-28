@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="21.173">
+    <testcase classname="Buying laptop" name="Buying laptop" time="20.803">
+        <failure message="invalid selector: Unable to locate an element with the xpath expression (//*[@id=&quot;tbodyid&quot;]/tr[1]/td[4]/a because of the following error:&#10;SyntaxError: Failed to execute 'evaluate' on 'Document': The string '(//*[@id=&quot;tbodyid&quot;]/tr[1]/td[4]/a' is not a valid XPath expression.&#10;  (Session info: chrome=102.0.5005.62)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception&#10;Build info: version: '4.1.1', revision: 'e8fcc2cecf'&#10;System info: host: 'LAPTOP-30S8ATAL', ip: '192.168.1.135', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [f3fb01b4a811975ef8f823a5185b30c1, findElement {using=xpath, value=(//*[@id=&quot;tbodyid&quot;]/tr[1]/td[4]/a}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.62, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\murat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61714}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61714/devtoo..., se:cdpVersion: 102.0.5005.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: f3fb01b4a811975ef8f823a5185b30c1" type="org.openqa.selenium.InvalidSelectorException">
+            <![CDATA[When user navigates to the home page........................................passed
+And user clicks on Laptops button...........................................passed
+And user clicks on Sony vaio i5.............................................passed
+Then user clicks on Add to cart button......................................passed
+Then user need to accept pop up confirmation................................passed
+Then user clicks on Laptops button..........................................passed
+And user clicks on Dell i7 8gb..............................................passed
+And user clicks on Add to cart button.......................................passed
+Then user need to accept pop up confirmation................................passed
+And user navigates to cart page.............................................passed
+And user delete Dell i7 8gb.................................................failed
+And user clicks on place order button.......................................skipped
+Then user fill in all web form fields.......................................skipped
+And user clicks on purchase button..........................................skipped
+Then user captures purchase id and amount...................................skipped
+Then user asserts purchase amount equals expected...........................skipped
+Then user clicks on ok button...............................................skipped
+
+StackTrace:
+org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression (//*[@id="tbodyid"]/tr[1]/td[4]/a because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '(//*[@id="tbodyid"]/tr[1]/td[4]/a' is not a valid XPath expression.
+  (Session info: chrome=102.0.5005.62)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#invalid_selector_exception
+Build info: version: '4.1.1', revision: 'e8fcc2cecf'
+System info: host: 'LAPTOP-30S8ATAL', ip: '192.168.1.135', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f3fb01b4a811975ef8f823a5185b30c1, findElement {using=xpath, value=(//*[@id="tbodyid"]/tr[1]/td[4]/a}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.62, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\murat\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61714}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61714/devtoo..., se:cdpVersion: 102.0.5005.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f3fb01b4a811975ef8f823a5185b30c1
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy20.click(Unknown Source)
+	at stepdefinitions.ClientAddsSonyStepDefs.user_delete_dell_i7_8gb(ClientAddsSonyStepDefs.java:77)
+	at ✽.user delete Dell i7 8gb(file:///C:/Users/murat/IdeaProjects/DemoBlazeProject/./src/test/resources/features/ClientBuysLaptop.feature:15)
+]]>
+        </failure>
+    </testcase>
+</testsuite>
