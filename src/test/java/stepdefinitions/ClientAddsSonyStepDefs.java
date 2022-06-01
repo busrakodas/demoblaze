@@ -2,22 +2,25 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.UnhandledAlertException;
+import org.junit.Assert;
+import org.openqa.selenium.*;
 import pages.ClientAddsDelli7Page;
 import pages.ClientAddsSonyVaioI5Page;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.JSUtilities;
+import utilities.ReusableMethods;
 
 public class ClientAddsSonyStepDefs {
     ClientAddsSonyVaioI5Page client=new ClientAddsSonyVaioI5Page();
     ClientAddsDelli7Page dell= new ClientAddsDelli7Page();
+    JavascriptExecutor javascriptExecutor = (JavascriptExecutor)Driver.getDriver();
     public String expectedamount;
-    public String actualamount;
+    public String actualAmount;
+    public String id;
 
-    @When("user navigates to the home page")
+
+        @When("user navigates to the home page")
     public void user_navigates_to_the_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("demo_blaze_url"));
     }
@@ -58,8 +61,8 @@ public class ClientAddsSonyStepDefs {
     }
     @When("user clicks on Dell i7 8gb")
     public void user_clicks_on_dell_i7_8gb() throws InterruptedException {
-   dell.home.click();
-   Thread.sleep(1000);
+    dell.home.click();
+    Thread.sleep(1000);
     client.laptopsButton.click();
     Thread.sleep(1000);
     dell.dell8gb.click();
@@ -74,19 +77,28 @@ public class ClientAddsSonyStepDefs {
     @Then("user delete Dell i7 8gb")
     public void user_delete_dell_i7_8gb() throws InterruptedException {
         Thread.sleep(2000);
-    dell.delete.click();
+        //dell.delete.click();
+        for(int i=0;i<client.products.size();i++){
+            WebElement delete=Driver.getDriver().findElement(By.xpath("//tr["+(i+1)+"]//td//a"));
+            if(client.products.get(i).getText().contains("Dell")){
+                Thread.sleep(2000);
+                //ReusableMethods.wait(2);
+                delete.click();
+
+            }
+        }
 
     }
     @Then("user clicks on place order button")
     public void user_clicks_on_place_order_button() throws InterruptedException {
         Thread.sleep(2000);
-    dell.placeOrder.click();
+        dell.placeOrder.click();
 
     }
     @Then("user fill in all web form fields")
     public void user_fill_in_all_web_form_fields() throws InterruptedException {
         Thread.sleep(2000);
-     dell.name.click();
+        dell.name.click();
         Driver.waitAndSendText(dell.name,"isabelle");
         Driver.waitAndSendText(dell.country,"Spain");
         Driver.waitAndSendText(dell.city,"Madrid");
@@ -100,21 +112,28 @@ public class ClientAddsSonyStepDefs {
         System.out.println(dell.expectedamount.getText());
         expectedamount=dell.expectedamount.getText();
         Thread.sleep(2000);
-    dell.purchase.click();
+        dell.purchase.click();
 
     }
     @Then("user captures purchase id and amount")
     public void user_captures_purchase_id_and_amount() {
-
+        id = (String)javascriptExecutor.executeScript("return document.evaluate(\"//p[contains(@class, 'lead text-muted ')]//br[1]/preceding-sibling::text()[1]\", document, null, XPathResult.STRING_TYPE, null ).stringValue;");
+        System.out.println(id);
+        actualAmount = (String)javascriptExecutor.executeScript("return document.evaluate(\"//p[contains(@class, 'lead text-muted ')]//br[2]/preceding-sibling::text()[1]\", document, null, XPathResult.STRING_TYPE, null ).stringValue;");
+        System.out.println(actualAmount);
 
     }
     @Then("user asserts purchase amount equals expected")
     public void user_asserts_purchase_amount_equals_expected() {
-
+        Assert.assertTrue(actualAmount.contains(expectedamount));
 
     }
     @Then("user clicks on ok button")
-    public void user_clicks_on_ok_button() {
+    public void user_clicks_on_ok_button() throws InterruptedException {
+        Thread.sleep(2000);
+        client.okButton.click();
+        Driver.closeDriver();
 
     }
+
 }

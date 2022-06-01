@@ -4,10 +4,10 @@ Feature: Buying laptop
 Scenario: Buying laptop
     When user navigates to the home page
     And user clicks on Laptops button
-  And user clicks on Sony vaio i5
-  Then user clicks on Add to cart button
-  Then user need to accept pop up confirmation
-  Then user clicks on Laptops button
+    And user clicks on Sony vaio i5
+    Then user clicks on Add to cart button
+    Then user need to accept pop up confirmation
+    Then user clicks on Laptops button
     And user clicks on Dell i7 8gb
     And user clicks on Add to cart button
     Then user need to accept pop up confirmation
